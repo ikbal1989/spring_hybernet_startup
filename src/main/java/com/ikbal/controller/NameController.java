@@ -2,6 +2,7 @@ package com.ikbal.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -11,7 +12,7 @@ public class NameController {
 	/**
 	 * Listing Name
 	 */
-	@RequestMapping("/index")
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index() {		
 		ModelAndView mv = new ModelAndView();		
 		mv.setViewName("index.jsp");		
@@ -21,7 +22,7 @@ public class NameController {
 	/**
 	 * Create new name
 	 */
-	@RequestMapping("/create")
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView mv = new ModelAndView();		
 		mv.setViewName("create.jsp");
@@ -31,13 +32,13 @@ public class NameController {
 	/**
 	 * Save name to database
 	 */
-	@RequestMapping("/store")
+	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public void store() {}
 	
 	/**
 	 * Open edit form with existing name
 	 */
-	@RequestMapping("/edit")
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit() {
 		ModelAndView mv = new ModelAndView();		
 		mv.setViewName("edit.jsp");
@@ -47,13 +48,13 @@ public class NameController {
 	/**
 	 * Update name with modified name
 	 */
-	@RequestMapping("/update")
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update() {}
 	
 	/**
 	 * destroy / delete from database
 	 */
-	@RequestMapping("/destroy")
+	@RequestMapping(value = "/destroy", method = RequestMethod.DELETE)
 	public void destroy() {}
 	
 	
